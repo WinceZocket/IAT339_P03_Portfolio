@@ -1,0 +1,788 @@
+/*
+  KIZITO ANOZIE PORTFOLIO: VISUAL SYSTEM
+  Ethos: clear systems, visible rules.
+  Sections: 1 tokens, 2 base, 3 layout, 4 components, 5 page templates, 6 responsive
+*/
+
+/*
+  CREDITS: fonts (see css/fonts.css)
+  This section was learnt by courtesy of:
+  - IBM Plex (SIL Open Font License), https://www.ibm.com/plex/
+  - Fontsource, for the self-hosted woff2 files, https://fontsource.org
+  - MDN, "Web fonts", https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Text_styling/Web_fonts
+*/
+
+
+/* 1. TOKENS ------------------------------------------------------------ */
+
+/*
+  This section was learnt by courtesy of:
+  - MDN, "Using CSS custom properties", https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+  - MDN, clamp(), https://developer.mozilla.org/en-US/docs/Web/CSS/clamp
+  - WebAIM Contrast Checker (colour pairs), https://webaim.org/resources/contrastchecker/
+  - YouTube: Kevin Powell, "Master CSS Custom Properties" (search the title on his channel)
+  - Kevin Powell's free CSS Fundamentals, https://css-fundamentals.kevinpowell.co/1-essentials/custom-properties/
+*/
+
+:root {
+  /* colour */
+  --paper: #F5F4EF;
+  --surface: #FFFFFF;
+  --ink: #15181C;
+  --ink-soft: #454C54;
+  --line: #D9D7CF;
+  --grid: rgba(21, 24, 28, 0.045);
+
+  --game: #E8452C;        /* fills, bars and markers only */
+  --game-ink: #B5301A;    /* text and links on paper or white */
+  --health: #0B7F78;      /* fills, bars and markers (white text passes on it) */
+  --health-ink: #08635E;  /* text and links on paper or white */
+
+  /* type */
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5625rem;
+  --step-3: 1.953rem;
+  --step-4: clamp(2.2rem, 1.6rem + 2.4vw, 3.052rem);
+  --step-5: clamp(2.5rem, 1.7rem + 3.6vw, 4.2rem);
+
+  /* spacing: 8px base unit */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 1rem;
+  --s4: 1.5rem;
+  --s5: 2rem;
+  --s6: 3rem;
+  --s7: 4.5rem;
+  --s8: 6rem;
+
+  --measure: 66ch;
+  --radius: 2px;
+  --page: 72rem;
+}
+
+
+/* 2. BASE -------------------------------------------------------------- */
+
+/*
+  This section was learnt by courtesy of:
+  - MDN, "The box model", https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model
+  - MDN, "Using CSS gradients" (grid-paper background), https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients
+  - MDN, :focus-visible, https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+  - W3C WAI, "Page Structure" (skip link, landmarks), https://www.w3.org/WAI/tutorials/page-structure/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--s3);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--step-5); letter-spacing: -0.025em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); }
+
+p {
+  margin: 0 0 var(--s3);
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--ink);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.16em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s3);
+  top: -4rem;
+  padding: var(--s2) var(--s3);
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--s3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+
+/* 3. LAYOUT ------------------------------------------------------------ */
+
+/*
+  This section was learnt by courtesy of:
+  - Flexbox Froggy, https://flexboxfroggy.com
+  - CSS Grid Garden, https://cssgridgarden.com
+  - CSS-Tricks, "A Complete Guide to Flexbox", https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+  - CSS-Tricks, "A Complete Guide to CSS Grid", https://css-tricks.com/snippets/css/complete-guide-grid/
+  - Every Layout, https://every-layout.dev
+  - YouTube: Kevin Powell, "Learn Flexbox the Easy Way" (34 min)
+  - YouTube: Kevin Powell, "Learn How to Create a Responsive CSS Grid Layout" (32 min)
+  - Kevin Powell, "The magic of auto-fit and auto-fill", https://frontendmasters.com/tutorials/kevin-powell/auto-fit-auto-fill/
+*/
+
+.wrap {
+  width: min(100% - 2 * var(--s4), var(--page));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--s7);
+  border-top: 1px solid var(--ink);
+}
+
+.section--tight {
+  padding-block: var(--s6);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s4);
+}
+
+/* a row of boxes that wrap on their own, no media query needed */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--s4);
+}
+
+.stack > * + * {
+  margin-top: var(--s3);
+}
+
+
+/* 4. COMPONENTS -------------------------------------------------------- */
+
+/*
+  This section was learnt by courtesy of:
+  - MDN, "Positioning", https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning
+  - MDN, "Using CSS counters" (numbered steps), https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
+  - MDN, "Pseudo-classes and pseudo-elements" (::before, ::after), https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements
+  - WebAIM / W3C WAI, "Images" (alt text), https://www.w3.org/WAI/tutorials/images/
+*/
+
+/* header and navigation */
+.site-header {
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2) var(--s5);
+  padding-block: var(--s3);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: var(--step-1);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding-block: var(--s1);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover {
+  border-bottom-color: var(--ink);
+}
+
+.nav-list a[aria-current] {
+  border-bottom-color: var(--ink);
+  font-weight: 500;
+}
+
+/* eyebrow label with the signature indicator square */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin: 0 0 var(--s3);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  flex: none;
+  background: var(--ink);
+}
+
+.theme-game .eyebrow::before   { background: var(--game); }
+.theme-health .eyebrow::before { background: var(--health); }
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ruler rule: a heading underline with measurement ticks */
+.ruler {
+  position: relative;
+  padding-bottom: var(--s3);
+  margin-bottom: var(--s4);
+}
+
+.ruler::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.5rem;
+  background:
+    repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 0.5rem) bottom / 100% 0.5rem no-repeat,
+    linear-gradient(var(--ink), var(--ink)) bottom / 100% 1px no-repeat;
+}
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--game {
+  background: var(--game-ink);
+  border-color: var(--game-ink);
+  color: #fff;
+}
+
+.btn--game:hover {
+  background: transparent;
+  color: var(--game-ink);
+}
+
+.btn--health {
+  background: var(--health-ink);
+  border-color: var(--health-ink);
+  color: #fff;
+}
+
+.btn--health:hover {
+  background: transparent;
+  color: var(--health-ink);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+/* tags */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+}
+
+.tag--game   { color: var(--game-ink); }
+.tag--health { color: var(--health-ink); }
+.tag--draft  { color: var(--ink-soft); border-style: dashed; }
+
+/* two doors on the landing page */
+.doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--s4);
+}
+
+.door {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-top-width: 0.5rem;
+  border-radius: var(--radius);
+}
+
+.door p { flex-grow: 1; }
+
+.door--game   { border-top-color: var(--game); }
+.door--health { border-top-color: var(--health); }
+
+/* project cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s4);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+}
+
+.card h3 { margin: 0; }
+
+.card > .tag {
+  align-self: flex-start;
+}
+
+.card p {
+  flex-grow: 1;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.card__link {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.card--draft {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* project facts as a definition list */
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0;
+  margin: var(--s5) 0 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--surface);
+}
+
+.meta div {
+  padding: var(--s3);
+  border-right: 1px solid var(--line);
+}
+
+.meta div:last-child { border-right: 0; }
+
+.meta dt {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.meta dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* numbered process steps */
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: var(--s3);
+  padding-block: var(--s4);
+  border-top: 1px solid var(--line);
+  counter-increment: step;
+}
+
+.steps > li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.theme-game .steps > li::before   { color: var(--game-ink); }
+.theme-health .steps > li::before { color: var(--health-ink); }
+
+.steps h3 {
+  margin-bottom: var(--s2);
+}
+
+.steps p:last-child { margin-bottom: 0; }
+
+/* figures */
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: var(--s2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.figure-frame {
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--s4);
+  align-items: start;
+}
+
+/* bio block */
+.bio {
+  padding: var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-left-width: 0.5rem;
+  border-radius: var(--radius);
+}
+
+.bio p {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* footer */
+.site-footer {
+  margin-top: var(--s8);
+  padding-block: var(--s5);
+  border-top: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s2) var(--s5);
+}
+
+.site-footer p { margin: 0; max-width: none; }
+
+
+/* 5. PAGE TEMPLATES ---------------------------------------------------- */
+
+/*
+  This section was learnt by courtesy of:
+  - MDN, "Specificity", https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity
+  - MDN, "Pseudo-classes and pseudo-elements", https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements
+  - Every Layout (reusable layout patterns), https://every-layout.dev
+  - W3C Nu HTML Checker (validation), https://validator.w3.org/nu/
+*/
+
+.hero {
+  padding-block: var(--s7) var(--s6);
+}
+
+.hero h1 {
+  max-width: 18ch;
+}
+
+.hero .lede {
+  max-width: 54ch;
+}
+
+.page-title {
+  padding-block: var(--s7) var(--s5);
+}
+
+.page-title h1 {
+  font-size: var(--step-4);
+  max-width: 24ch;
+}
+
+.analysis {
+  max-width: 48rem;
+}
+
+/* style guide only */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--s3);
+}
+
+.swatch {
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.swatch__chip {
+  height: 5rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.swatch__body {
+  padding: var(--s3);
+  font-size: var(--step--1);
+}
+
+.swatch__body strong {
+  display: block;
+  font-size: var(--step-0);
+}
+
+.swatch__body p {
+  margin: var(--s1) 0 0;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--ink);
+}
+
+.spec-table caption {
+  text-align: left;
+  padding-bottom: var(--s2);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.spec-table th,
+.spec-table td {
+  padding: var(--s2) var(--s3);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-table thead th {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.demo {
+  padding: var(--s4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.dont-do {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--s4);
+}
+
+.dont-do > div {
+  padding: var(--s4);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+}
+
+.dont-do ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.col-demo {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s2);
+}
+
+.col-demo span {
+  height: 3rem;
+  background: var(--ink);
+  opacity: 0.12;
+}
+
+.space-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s3);
+}
+
+.space-row span {
+  display: block;
+  background: var(--ink);
+  height: 1rem;
+}
+
+.space-row figure { text-align: left; }
+
+
+/* type specimens that look like headings but are not headings, so the guide keeps a clean outline */
+.demo-h1, .demo-h2, .demo-h3 {
+  margin: 0;
+  max-width: none;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.demo-h1 { font-size: var(--step-5); letter-spacing: -0.025em; }
+.demo-h2 { font-size: var(--step-3); letter-spacing: -0.01em; }
+.demo-h3 { font-size: var(--step-1); letter-spacing: -0.01em; }
+
+
+/* Citations page: hanging-indent reference list, long URLs wrap instead of scrolling sideways */
+.cite-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+  max-width: var(--measure);
+}
+
+.cite-list li {
+  padding-left: var(--s4);
+  text-indent: calc(-1 * var(--s4));
+  overflow-wrap: anywhere;
+}
+
+
+/* 6. RESPONSIVE -------------------------------------------------------- */
+
+/*
+  This section was learnt by courtesy of:
+  - web.dev, "Learn Responsive Design", https://web.dev/learn/design
+  - MDN, "Using media queries", https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+  - MDN, prefers-reduced-motion, https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+*/
+
+@media (max-width: 40em) {
+  .section { padding-block: var(--s6); }
+  .hero { padding-block: var(--s6) var(--s5); }
+  .door, .bio { padding: var(--s4); }
+  .steps > li { grid-template-columns: 1fr; gap: var(--s1); }
+  .meta div { border-right: 0; border-bottom: 1px solid var(--line); }
+  .meta div:last-child { border-bottom: 0; }
+}

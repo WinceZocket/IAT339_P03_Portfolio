@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="t d" font-family="'IBM Plex Mono', Consolas, monospace" font-size="14">
+  <title id="t">Bibble's Great Escape: merging two fail states into one</title>
+  <desc id="d">Left, before: losing all three lives and being caught by the predator were two separate endings. Right, after: three hearts, and each lost heart moves the predator closer; losing the third heart means the predator catches Bibble.</desc>
+  <rect width="800" height="400" fill="#FFFFFF"/>
+  <line x1="400" y1="24" x2="400" y2="376" stroke="#15181C" stroke-width="1"/>
+
+  <text x="24" y="40" font-size="12" fill="#454C54" letter-spacing="1.2">BEFORE: TWO ENDINGS</text>
+  <rect x="24" y="64" width="170" height="64" fill="none" stroke="#15181C" stroke-width="1.5"/>
+  <text x="109" y="92" text-anchor="middle" fill="#15181C">Lives</text>
+  <text x="109" y="112" text-anchor="middle" fill="#15181C">hit 0</text>
+  <rect x="24" y="168" width="170" height="64" fill="none" stroke="#15181C" stroke-width="1.5"/>
+  <text x="109" y="196" text-anchor="middle" fill="#15181C">Caught by</text>
+  <text x="109" y="216" text-anchor="middle" fill="#15181C">the predator</text>
+  <line x1="194" y1="96" x2="262" y2="96" stroke="#15181C" stroke-width="1.5"/>
+  <line x1="194" y1="200" x2="262" y2="200" stroke="#15181C" stroke-width="1.5"/>
+  <rect x="262" y="64" width="110" height="64" fill="#15181C"/>
+  <text x="317" y="102" text-anchor="middle" fill="#F5F4EF">GAME OVER</text>
+  <rect x="262" y="168" width="110" height="64" fill="#15181C"/>
+  <text x="317" y="206" text-anchor="middle" fill="#F5F4EF">GAME OVER</text>
+  <text x="24" y="280" fill="#B5301A">Problem: two reasons to lose,</text>
+  <text x="24" y="302" fill="#B5301A">and the player can't tell which</text>
+  <text x="24" y="324" fill="#B5301A">one is coming.</text>
+
+  <text x="424" y="40" font-size="12" fill="#454C54" letter-spacing="1.2">AFTER: ONE VISIBLE RULE</text>
+  <text x="424" y="76" fill="#15181C">Hearts</text>
+  <g fill="#E8452C" stroke="#15181C" stroke-width="1.5">
+    <path transform="translate(500 58)" d="M10 18 C-2 8 2 -2 10 4 C18 -2 22 8 10 18 Z"/>
+    <path transform="translate(536 58)" d="M10 18 C-2 8 2 -2 10 4 C18 -2 22 8 10 18 Z"/>
+    <path transform="translate(572 58)" d="M10 18 C-2 8 2 -2 10 4 C18 -2 22 8 10 18 Z"/>
+  </g>
+  <text x="424" y="130" fill="#15181C">Chase</text>
+  <line x1="424" y1="176" x2="776" y2="176" stroke="#D9D7CF" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="448" cy="176" r="14" fill="#0B7F78" stroke="#15181C" stroke-width="1.5"/>
+  <text x="448" y="208" text-anchor="middle" font-size="12" fill="#15181C">Bibble</text>
+  <rect x="716" y="160" width="40" height="32" fill="#15181C"/>
+  <text x="736" y="208" text-anchor="middle" font-size="12" fill="#15181C">Enemy</text>
+  <path d="M706 176 H600 M600 176 l10 -6 M600 176 l10 6" fill="none" stroke="#B5301A" stroke-width="1.5"/>
+  <text x="424" y="252" fill="#15181C">Lose a heart: enemy moves closer.</text>
+  <text x="424" y="276" fill="#15181C">Lose the third: enemy catches Bibble.</text>
+  <text x="424" y="324" fill="#0B6B65">Result: danger is visible on screen,</text>
+  <text x="424" y="346" fill="#0B6B65">not hidden in a counter.</text>
+</svg>
