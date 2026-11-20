@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style guide | Kizito Anozie</title>
+    <meta name="description" content="Visual ethos and style guide for the portfolio of Kizito Anozie.">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">Kizito Anozie</a>
+        <nav aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="styleguide.html" aria-current="page">Style guide</a></li>
+            <li><a href="citations.html">Citations</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+
+      <section class="page-title wrap" aria-labelledby="page-title">
+        <p class="eyebrow">Visual ethos · Style guide</p>
+        <h1 id="page-title">Clear systems, visible rules.</h1>
+        <p class="lede">The visual side of how I present myself: a game designer and public health student who builds systems people can read at a glance.</p>
+      </section>
+
+      <section class="wrap" aria-labelledby="ethos-title">
+        <h2 class="ruler" id="ethos-title">Ethos</h2>
+        <div class="grid-12">
+          <div style="grid-column: 1 / -1;" class="stack">
+            <p>Game design and public health share a question: when a system is built well, how does it change what people do? My visual language answers it the same way my work does. Rules are visible, structure is shown instead of hidden, and nothing is decorative unless it also explains.</p>
+            <p>The look borrows from technical drawing, not from either field’s usual costumes: a visible grid, one type family, measurement ticks, and two signal colours that mark which part of my work you are in.</p>
+          </div>
+        </div>
+        <div class="auto-grid" style="margin-top: var(--s5);">
+          <article class="card">
+            <h3>Show the structure</h3>
+            <p>Grid paper, rules and numbered steps make the system behind each page visible.</p>
+          </article>
+          <article class="card">
+            <h3>One idea per signal</h3>
+            <p>Vermilion marks game work and teal marks health work. Everything else stays ink and paper.</p>
+          </article>
+          <article class="card">
+            <h3>Explain, don’t decorate</h3>
+            <p>Every line, tick and colour has a job. If it does not help someone read the page, it is removed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="clichess-title">
+        <h2 class="ruler" id="clichess-title">Avoiding the stereotypes</h2>
+        <div class="dont-do">
+          <div>
+            <h3>What I am avoiding</h3>
+            <ul>
+              <li>Pixel fonts, neon glows, controller icons and “press start” copy for games.</li>
+              <li>Stethoscopes, crosses, DNA helices and blue gradients for health.</li>
+              <li>Stock photos of people pointing at laptops.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What I use instead</h3>
+            <ul>
+              <li>Plain structure: grids, rules, numbered steps and labelled diagrams.</li>
+              <li>My own artifacts as the imagery: diagrams, screenshots and playtest evidence.</li>
+              <li>Colour as a signal that tells you where you are, not as decoration.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="colour-title">
+        <h2 class="ruler" id="colour-title">Colour</h2>
+        <p>Neutrals carry the page. The two signal colours are reserved for markers, bars and small fills. Where a signal colour is used for text, the darker “ink” version is used so it passes WCAG AA contrast.</p>
+        <div class="swatches">
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #F5F4EF;"></div>
+              <div class="swatch__body">
+                <strong>Paper</strong>
+                <p class="mono">#F5F4EF</p>
+                <p>Page background</p>
+                <p>Ink on Paper: 16.2 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #FFFFFF;"></div>
+              <div class="swatch__body">
+                <strong>Surface</strong>
+                <p class="mono">#FFFFFF</p>
+                <p>Cards and panels</p>
+                <p>Ink on Surface: 17.8 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #15181C;"></div>
+              <div class="swatch__body">
+                <strong>Ink</strong>
+                <p class="mono">#15181C</p>
+                <p>Text, rules, borders, buttons</p>
+                <p>Paper on Ink: 16.2 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #454C54;"></div>
+              <div class="swatch__body">
+                <strong>Ink soft</strong>
+                <p class="mono">#454C54</p>
+                <p>Secondary text and captions</p>
+                <p>On Paper: 7.9 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #D9D7CF;"></div>
+              <div class="swatch__body">
+                <strong>Line</strong>
+                <p class="mono">#D9D7CF</p>
+                <p>Quiet dividers only, never text</p>
+                <p>Decoration</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #E8452C;"></div>
+              <div class="swatch__body">
+                <strong>Game signal</strong>
+                <p class="mono">#E8452C</p>
+                <p>Fills, bars and markers for game work</p>
+                <p>Ink on this colour: 4.5 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #B5301A;"></div>
+              <div class="swatch__body">
+                <strong>Game ink</strong>
+                <p class="mono">#B5301A</p>
+                <p>Text and links in the game section</p>
+                <p>On Paper: 5.6 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #0B7F78;"></div>
+              <div class="swatch__body">
+                <strong>Health signal</strong>
+                <p class="mono">#0B7F78</p>
+                <p>Fills, bars and markers for health work</p>
+                <p>White on this colour: 4.9 : 1</p>
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="swatch__chip" style="background: #08635E;"></div>
+              <div class="swatch__body">
+                <strong>Health ink</strong>
+                <p class="mono">#08635E</p>
+                <p>Text and links in the health section</p>
+                <p>On Paper: 6.5 : 1</p>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="type-title">
+        <h2 class="ruler" id="type-title">Typography</h2>
+        <p>One family, two voices. IBM Plex Sans carries headings and body text. IBM Plex Mono labels things the way a technical drawing does: eyebrows, buttons, captions and data. Both are self-hosted under the SIL Open Font License.</p>
+        <div class="demo stack">
+          <p class="eyebrow">Eyebrow · IBM Plex Mono 500</p>
+          <p class="demo-h1">Heading 1 · Plex Sans 700</p>
+          <p class="demo-h2">Heading 2 · Plex Sans 700</p>
+          <p class="demo-h3">Heading 3 · Plex Sans 700</p>
+          <p class="lede">Lede paragraph, 1.25rem, used once under a page title.</p>
+          <p>Body text, 1rem with a 1.6 line height and a 66-character line length. Ordinary links look <a href="#type-title">like this</a>.</p>
+          <p class="mono" style="margin-bottom: 0;">Mono caption · 0.8125rem · used for figure captions and data</p>
+        </div>
+        <div class="table-scroll" style="margin-top: var(--s4);">
+          <table class="spec-table">
+            <caption>Type scale (ratio 1.25)</caption>
+            <thead><tr><th scope="col">Token</th><th scope="col">Size</th><th scope="col">Used for</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">--step--1</th><td>0.8125rem</td><td>Labels, captions, tags</td></tr>
+              <tr><th scope="row">--step-0</th><td>1rem</td><td>Body text</td></tr>
+              <tr><th scope="row">--step-1</th><td>1.25rem</td><td>Lede, card titles, bio</td></tr>
+              <tr><th scope="row">--step-3</th><td>1.953rem</td><td>Section headings</td></tr>
+              <tr><th scope="row">--step-4</th><td>2.2 to 3.05rem</td><td>Page titles (fluid)</td></tr>
+              <tr><th scope="row">--step-5</th><td>2.5 to 4.2rem</td><td>Landing headline (fluid)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="layout-title">
+        <h2 class="ruler" id="layout-title">Grid and spacing</h2>
+        <p>Pages sit on a 12-column grid, up to 72rem wide. Spacing comes from an 8px unit, so every gap is a multiple of it. Rows of cards use an auto-fit grid, so they wrap from four across to one without media queries.</p>
+        <div class="col-demo" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="space-row" style="margin-top: var(--s4);">
+          <figure><span style="width: 0.25rem;"></span><figcaption>--s1 · 4px</figcaption></figure>
+          <figure><span style="width: 0.5rem;"></span><figcaption>--s2 · 8px</figcaption></figure>
+          <figure><span style="width: 1rem;"></span><figcaption>--s3 · 16px</figcaption></figure>
+          <figure><span style="width: 1.5rem;"></span><figcaption>--s4 · 24px</figcaption></figure>
+          <figure><span style="width: 2rem;"></span><figcaption>--s5 · 32px</figcaption></figure>
+          <figure><span style="width: 3rem;"></span><figcaption>--s6 · 48px</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="signature-title">
+        <h2 class="ruler" id="signature-title">Signature elements</h2>
+        <div class="auto-grid">
+          <div class="demo">
+            <p class="eyebrow">Indicator square</p>
+            <p style="margin-bottom: 0;">A small square before every label. Ink by default, vermilion in game work, teal in health work.</p>
+          </div>
+          <div class="demo theme-game"><p class="eyebrow">Game section</p><p style="margin-bottom: 0;">Class <code>theme-game</code></p></div>
+          <div class="demo theme-health"><p class="eyebrow">Health section</p><p style="margin-bottom: 0;">Class <code>theme-health</code></p></div>
+        </div>
+        <h3 class="ruler" style="margin-top: var(--s5);">Ruler rule</h3>
+        <p>Section headings sit on a rule with measurement ticks, a nod to technical drawings. The grid-paper background is a 32px grid at 4.5% opacity.</p>
+      </section>
+
+      <section class="section wrap" aria-labelledby="components-title">
+        <h2 class="ruler" id="components-title">Components</h2>
+
+        <h3>Buttons</h3>
+        <div class="btn-row">
+          <a class="btn" href="#components-title">Default</a>
+          <a class="btn btn--game" href="#components-title">Game</a>
+          <a class="btn btn--health" href="#components-title">Health</a>
+          <a class="btn btn--ghost" href="#components-title">Ghost</a>
+        </div>
+        <p class="mono" style="margin-top: var(--s2);">.btn, .btn--game, .btn--health, .btn--ghost</p>
+
+        <h3 style="margin-top: var(--s5);">Tags</h3>
+        <div class="btn-row">
+          <span class="tag">Web design</span>
+          <span class="tag tag--game">Game design</span>
+          <span class="tag tag--health">Public health</span>
+          <span class="tag tag--draft">Draft</span>
+        </div>
+
+        <h3 style="margin-top: var(--s5);">Project cards</h3>
+        <div class="auto-grid">
+          <article class="card">
+            <span class="tag tag--game">Game design</span>
+            <h3>Finished project</h3>
+            <p>Solid border and a white surface. Links to the process analysis.</p>
+            <a class="card__link" href="#components-title">Read the process</a>
+          </article>
+          <article class="card card--draft">
+            <span class="tag tag--health">Public health</span>
+            <h3>Draft project</h3>
+            <p>Dashed border and no fill, so unfinished work is obvious.</p>
+            <span class="tag tag--draft">Draft</span>
+          </article>
+        </div>
+
+        <h3 style="margin-top: var(--s5);">Project facts</h3>
+        <dl class="meta" style="margin-top: var(--s3);">
+          <div><dt>Course</dt><dd>IAT 000</dd></div>
+          <div><dt>My role</dt><dd>Role name</dd></div>
+          <div><dt>Team</dt><dd>Team size</dd></div>
+          <div><dt>Stage</dt><dd>Stage</dd></div>
+        </dl>
+
+        <h3 style="margin-top: var(--s5);">Process steps</h3>
+        <div class="theme-game">
+          <ol class="steps">
+            <li><div><h3>Problem</h3><p>Numbered steps give each process analysis the same shape, and the number takes the section’s signal colour.</p></div></li>
+            <li><div><h3>Iteration</h3><p>Each step is a short paragraph, so the whole analysis can be scanned in seconds.</p></div></li>
+          </ol>
+        </div>
+
+        <h3 style="margin-top: var(--s5);">Figure with caption</h3>
+        <figure>
+          <div class="figure-frame"><img src="img/bibble-fail-states.svg" width="800" height="400" alt="Sample figure: a diagram of merging two fail states into one."></div>
+          <figcaption>Fig. 1: Captions use the mono voice and always say what changed.</figcaption>
+        </figure>
+
+        <h3 style="margin-top: var(--s5);">Bio block</h3>
+        <div class="bio"><p>I’m Kizito Anozie, a fifth-year Health Sciences student at SFU in the Public Health and Data pathway, and a game designer in training. The two fields ask the same question: how does a well-built system change what people do? In games, I design levels and mechanics that teach through feedback. In health, I work with data to understand patterns. I build clean, responsive interfaces to show that thinking, and I’m exploring veterinary medicine because I love animals.</p></div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="access-title">
+        <h2 class="ruler" id="access-title">Accessibility and behaviour</h2>
+        <ul>
+          <li>Text meets WCAG AA contrast. Signal colours are never the only way information is shown: tags and labels always carry words.</li>
+          <li>Every page has a skip link, one h1, ordered headings, landmarks and a visible focus ring.</li>
+          <li>Layouts wrap on their own and are tested from 360px to desktop widths with no sideways scroll.</li>
+          <li>Motion is limited to short colour transitions, and smooth scrolling turns off for visitors who prefer reduced motion.</li>
+        </ul>
+      </section>
+
+      <section class="section wrap" aria-labelledby="templates-title">
+        <h2 class="ruler" id="templates-title">Page templates</h2>
+        <p>These pages use the system above.</p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="index.html">Landing</a>
+          <a class="btn btn--ghost" href="about.html">About and bio</a>
+          <a class="btn btn--ghost" href="project-bibble.html">Process analysis: Bibble’s Great Escape</a>
+          <a class="btn btn--ghost" href="project-cinnamunch.html">Process analysis: CinnaMunch</a>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="credits-title">
+        <h2 class="ruler" id="credits-title">Credits</h2>
+        <p>Fonts: <a href="https://github.com/IBM/plex">IBM Plex Sans and IBM Plex Mono</a> by IBM, licensed under the SIL Open Font License 1.1 and served here from the <a href="https://fontsource.org">Fontsource</a> packages. Colour contrast ratios were calculated with the WCAG 2 formula. All screenshots and diagrams are my own work. Full references are on the <a href="citations.html">citations page</a>.</p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Kizito Anozie · Game design and public health</p>
+        <p>IAT 339 portfolio draft · Set in IBM Plex Font</p>
+      </div>
+    </footer>
+  </body>
+</html>

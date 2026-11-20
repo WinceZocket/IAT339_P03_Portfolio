@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinnaMunch | Process analysis | Kizito Anozie</title>
+    <meta name="description" content="Process analysis of the CinnaMunch bakery website.">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">Kizito Anozie</a>
+        <nav aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html#work" aria-current="true">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="styleguide.html">Style guide</a></li>
+            <li><a href="citations.html">Citations</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+
+      <section class="page-title wrap" aria-labelledby="page-title">
+        <p class="eyebrow">Web design · Process analysis</p>
+        <h1 id="page-title">CinnaMunch: one style guide, eleven pages, every screen size</h1>
+        <p class="lede">A bakery website built as a team, from separate style guides to a tested, responsive site.</p>
+        <dl class="meta">
+          <div><dt>Course</dt><dd>IAT 339</dd></div>
+          <div><dt>My role</dt><dd>Style guide, page layouts, responsive CSS</dd></div>
+          <div><dt>Team</dt><dd>Group of two</dd></div>
+          <div><dt>Tools</dt><dd>HTML, CSS, GitHub</dd></div>
+        </dl>
+      </section>
+
+      <section class="section wrap" aria-labelledby="analysis-title">
+        <h2 class="ruler" id="analysis-title">Process analysis</h2>
+        <div class="analysis">
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>Problem</h3>
+              <p>CinnaMunch is a bakery website built for a team project in IAT 339. The challenge was a set of pages that feel like one brand and work on any screen, from a phone to a desktop.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Foundation</h3>
+              <p>We started with individual style guides and merged them into one shared guide: Mileast headings, Montserrat body text and a brown-and-gold palette. Every page pulls from that guide, so a decision made once, such as a button style, applies everywhere.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Iteration</h3>
+              <p>Feedback drove the biggest changes. Peers asked for a corrected citation, product text beside the image, and real photos instead of placeholders. Our instructor asked for a GitHub link in the footer, and visible active link, so we added a highlight using aria-current, which screen readers also announce, plus breadcrumbs. When the navigation collapsed awkwardly on small screens, we replaced it with a hamburger menu built from a hidden checkbox and CSS, because JavaScript was out of scope for the project. The first homepage was really the style guide, so we split them into two pages.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Testing</h3>
+              <p>We tested at phone, tablet and desktop widths. That found a three-pixel sideways scroll on checkout and buttons with no gap between them, and both were fixed. A validator pass caught skipped heading levels, which we corrected without changing how the pages look.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Reflection</h3>
+              <p>The finished site has eleven pages, a style guide that documents every component with its atomic-design level, and a citations page. The main lesson was that a style guide only works if every page is checked against it, and that testing at real screen sizes finds problems a design file never shows.</p>
+            </div>
+          </li>
+        </ol>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="artifacts-title">
+        <h2 class="ruler" id="artifacts-title">Artifacts</h2>
+        <div class="stack">
+          <div class="compare">
+            <figure>
+              <div class="figure-frame"><img src="img/cinnamunch-home-before.jpg" width="1200" height="800" alt="Early version of the CinnaMunch homepage, which was still the style guide: a title, a list of links and sample code."></div>
+              <figcaption>Fig. 1: Before. The “homepage” was the style guide.</figcaption>
+            </figure>
+            <figure>
+              <div class="figure-frame"><img src="img/cinnamunch-home-after.jpg" width="1200" height="800" alt="Final CinnaMunch homepage with the wordmark, a hero photo of baked goods and a call-to-action button."></div>
+              <figcaption>Fig. 2: After. A real homepage with its own hero.</figcaption>
+            </figure>
+          </div>
+          <div class="compare">
+            <figure>
+              <div class="figure-frame"><img src="img/cinnamunch-nav-before-mobile.jpg" width="390" height="700" alt="Phone view of the navigation before the change: the links wrap onto two rows."></div>
+              <figcaption>Fig. 3: Phone navigation before. Links wrap onto two rows.</figcaption>
+            </figure>
+            <figure>
+              <div class="figure-frame"><img src="img/cinnamunch-nav-after-mobile.jpg" width="390" height="700" alt="Phone view of the navigation after the change: a Menu button opens a single column of links with the current page highlighted."></div>
+              <figcaption>Fig. 4: After. A CSS-only Menu button with the active page highlighted.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-label="Next project">
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="project-bibble.html">Previous: Bibble's Great Escape</a>
+          <a class="btn" href="index.html#work">All work</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Kizito Anozie · Game design and public health</p>
+        <p>IAT 339 portfolio draft · Set in IBM Plex Font</p>
+      </div>
+    </footer>
+  </body>
+</html>

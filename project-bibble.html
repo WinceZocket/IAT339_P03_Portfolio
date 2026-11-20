@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibble's Great Escape | Process analysis | Kizito Anozie</title>
+    <meta name="description" content="Process analysis of Bibble's Great Escape, a runner redesign of Ant Lion.">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="theme-game">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">Kizito Anozie</a>
+        <nav aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html#work" aria-current="true">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="styleguide.html">Style guide</a></li>
+            <li><a href="citations.html">Citations</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+
+      <section class="page-title wrap" aria-labelledby="page-title">
+        <p class="eyebrow">Game design · Process analysis</p>
+        <h1 id="page-title">Bibble's Great Escape: rebuilding a game around one readable rule</h1>
+        <p class="lede">A redesign of Ant Lion into a side-scrolling runner, from analysis to first playable.</p>
+        <dl class="meta">
+          <div><dt>Course</dt><dd>IAT 312</dd></div>
+          <div><dt>My role</dt><dd>Level designer</dd></div>
+          <div><dt>Team</dt><dd>2 programmers, 1 visual artist, 1 level designer</dd></div>
+          <div><dt>Stage</dt><dd>Prototype</dd></div>
+        </dl>
+      </section>
+
+      <section class="section wrap" aria-labelledby="analysis-title">
+        <h2 class="ruler" id="analysis-title">Process analysis</h2>
+        <div class="analysis">
+        <ol class="steps">
+          <li>
+            <div>
+              <h3>Problem</h3>
+              <p>Our brief was to redesign Ant Lion, an older Flash and Unity game. We started by playing the original and listing what the player does, what the game tells them, and what happens when they fail. The rules were spread across several systems, so we could not say in one sentence what the game was about.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Direction</h3>
+              <p>We reworked it into a side-scrolling runner in which Bibble is fleeing a predator. Boiling the premise down to “run, don't get caught” gave the team one test for every idea: does it make the chase easier to read or more tense?</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Iteration</h3>
+              <p>Our first fail states were the weak point. “Lose all three lives” and “get caught by the predator” were separate endings, and players could not tell them apart, therefore, we merged them. The player has three hearts, each lost heart brings the enemy closer, and losing the third means the enemy catches Bibble. Danger is now visible on screen instead of hidden in a corner. As level designer, I used that rule to shape layouts: obstacles have to be readable early, because every mistake has a visible cost.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Audience</h3>
+              <p>We also revisited who we were designing for. Our first framing used achiever and explorer player types. We added people in their twenties who are engaged in meme culture, which favours short runs and failure that is obvious at a glance.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Where it stands</h3>
+              <p>The project is now in the prototype phase: a first playable and a refined game design document with a playtesting report. It shows how I work. I reduce a messy problem to one rule, test every decision against it, and change the design when the evidence says it is not working.</p>
+            </div>
+          </li>
+        </ol>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="artifacts-title">
+        <h2 class="ruler" id="artifacts-title">Artifacts</h2>
+        <figure>
+          <div class="figure-frame">
+            <img src="img/bibble-fail-states.svg" width="800" height="400" alt="Diagram. Before: lives reaching zero and being caught by the predator are two separate game-over endings. After: three hearts, and each lost heart moves the enemy closer to Bibble; the third lost heart means the enemy catches Bibble.">
+          </div>
+          <figcaption>Fig. 1: Merging two fail states into one visible rule.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section wrap" aria-label="Next project">
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="index.html#work">All work</a>
+          <a class="btn" href="project-cinnamunch.html">Next: CinnaMunch</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Kizito Anozie · Game design and public health</p>
+        <p>IAT 339 portfolio draft · Set in IBM Plex Font</p>
+      </div>
+    </footer>
+  </body>
+</html>
